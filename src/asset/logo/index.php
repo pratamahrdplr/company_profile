@@ -1,3 +1,2 @@
 <?php
-header ('Location:http://www.prl-hsd.com/');
-?>
+header ('Location:https://plrhsd.id/');

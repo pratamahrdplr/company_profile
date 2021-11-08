@@ -1,13 +1,13 @@
-<?php 
-    echo "<div class='col-md-12'>
+<?php
+echo "<div class='col-md-12'>
               <div class='box box-info'>
                 <div class='box-header with-border'>
                   <h3 class='box-title'>Tambah Link Terkait</h3>
                 </div>
               <div class='box-body'>";
-              $attributes = array('class'=>'form-horizontal','role'=>'form');
-              echo form_open_multipart('administrator/tambah_iklansidebar',$attributes); 
-          echo "<div class='col-md-12'>
+$attributes = array('class' => 'form-horizontal', 'role' => 'form');
+echo form_open_multipart('administrator/tambah_iklansidebar', $attributes);
+echo "<div class='col-md-12'>
                   <table class='table table-condensed table-bordered'>
                   <tbody>
                     <input type='hidden' name='id' value=''>
@@ -24,4 +24,4 @@
                     
                   </div>
             </div></div></div>";
-            echo form_close();
+echo form_close();

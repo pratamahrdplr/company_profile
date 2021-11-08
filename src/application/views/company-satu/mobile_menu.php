@@ -20,7 +20,7 @@ $pecah = explode(",", $sosmed['facebook']);
                 </span>
                 <span class='td-social-icon-wrap'>
                     <a target='_blank' href="<?php echo $pecah[4]; ?>" title='Youtube'><i class="td-icon-font td-icon-youtube"></i></a>
-                </span> 
+                </span>
             </div>
             <div class='td-mobile-close'><a href="#"><i class='td-icon-close-mobile'></i></a></div>
         </div>
@@ -28,7 +28,7 @@ $pecah = explode(",", $sosmed['facebook']);
             <div class='td-guest-wrap'>
                 <div class='td-menu-avatar'>
                     <div class='td-avatar-container'>
-                    <img src="https://secure.gravatar.com/avatar/?s=80&#038;d=mm&#038;r=g" width='80' height='80' class="avatar avatar-80 wp-user-avatar wp-user-avatar-80 photo avatar-default" />
+                        <img src="https://secure.gravatar.com/avatar/?s=80&#038;d=mm&#038;r=g" width='80' height='80' class="avatar avatar-80 wp-user-avatar wp-user-avatar-80 photo avatar-default" />
                     </div>
                 </div>
                 <div class='td-menu-login'><a id='login-link-mob'>Sign in</a></div>
@@ -36,12 +36,13 @@ $pecah = explode(",", $sosmed['facebook']);
         </div>
 
         <div class='td-mobile-content'>
-        <div class='menu-main-menu-container'>
-            <?php 
-                function main_menu_mobile() {
-                    $ci = & get_instance();
+            <div class='menu-main-menu-container'>
+                <?php
+                function main_menu_mobile()
+                {
+                    $ci = &get_instance();
                     $query = $ci->db->query("SELECT id_menu, nama_menu, link, id_parent FROM menu where aktif='Ya' AND position='Bottom' order by urutan");
-                    $menu = array('items' => array(),'parents' => array());
+                    $menu = array('items' => array(), 'parents' => array());
                     foreach ($query->result() as $menus) {
                         $menu['items'][$menus->id_menu] = $menus;
                         $menu['parents'][$menus->id_parent][] = $menus->id_menu;
@@ -49,32 +50,33 @@ $pecah = explode(",", $sosmed['facebook']);
                     if ($menu) {
                         $result = build_main_menu_mobile(0, $menu);
                         return $result;
-                    }else{
+                    } else {
                         return FALSE;
                     }
                 }
 
-                function build_main_menu_mobile($parent, $menu) {
+                function build_main_menu_mobile($parent, $menu)
+                {
                     $html = "";
                     if (isset($menu['parents'][$parent])) {
-                        if ($parent=='0'){
+                        if ($parent == '0') {
                             $html .= "<ul id='menu-main-menu class=td-mobile-main-menu'>";
-                        }else{
+                        } else {
                             $html .= "<ul class='sub-menu'>";
                         }
                         foreach ($menu['parents'][$parent] as $itemId) {
                             if (!isset($menu['parents'][$itemId])) {
-                                if(preg_match("/^http/", $menu['items'][$itemId]->link)) {
-                                    $html .= "<li class='menu-item menu-item-type-post_type'><a target='_BLANK' href='".$menu['items'][$itemId]->link."'>".$menu['items'][$itemId]->nama_menu."</a></li>";
-                                }else{
-                                    $html .= "<li class='menu-item menu-item-type-post_type'><a href='".base_url().''.$menu['items'][$itemId]->link."'>".$menu['items'][$itemId]->nama_menu."</a></li>";
+                                if (preg_match("/^http/", $menu['items'][$itemId]->link)) {
+                                    $html .= "<li class='menu-item menu-item-type-post_type'><a target='_BLANK' href='" . $menu['items'][$itemId]->link . "'>" . $menu['items'][$itemId]->nama_menu . "</a></li>";
+                                } else {
+                                    $html .= "<li class='menu-item menu-item-type-post_type'><a href='" . base_url() . '' . $menu['items'][$itemId]->link . "'>" . $menu['items'][$itemId]->nama_menu . "</a></li>";
                                 }
                             }
                             if (isset($menu['parents'][$itemId])) {
-                                if(preg_match("/^http/", $menu['items'][$itemId]->link)) {
-                                    $html .= "<li class='menu-item menu-item-type-custom menu-item-object-custom current-menu-parent menu-item-has-children td-menu-item td-normal-menu'><a class='sf-with-ul' target='_BLANK' href='".$menu['items'][$itemId]->link."'>".$menu['items'][$itemId]->nama_menu." <i class='td-icon-menu-right td-element-after'></i></a>";
-                                }else{
-                                    $html .= "<li class='menu-item menu-item-type-custom menu-item-object-custom current-menu-parent menu-item-has-children td-menu-item td-normal-menu'><a class='sf-with-ul' href='".base_url().''.$menu['items'][$itemId]->link."'>".$menu['items'][$itemId]->nama_menu." <i class='td-icon-menu-right td-element-after'></i></a>";
+                                if (preg_match("/^http/", $menu['items'][$itemId]->link)) {
+                                    $html .= "<li class='menu-item menu-item-type-custom menu-item-object-custom current-menu-parent menu-item-has-children td-menu-item td-normal-menu'><a class='sf-with-ul' target='_BLANK' href='" . $menu['items'][$itemId]->link . "'>" . $menu['items'][$itemId]->nama_menu . " <i class='td-icon-menu-right td-element-after'></i></a>";
+                                } else {
+                                    $html .= "<li class='menu-item menu-item-type-custom menu-item-object-custom current-menu-parent menu-item-has-children td-menu-item td-normal-menu'><a class='sf-with-ul' href='" . base_url() . '' . $menu['items'][$itemId]->link . "'>" . $menu['items'][$itemId]->nama_menu . " <i class='td-icon-menu-right td-element-after'></i></a>";
                                 }
                                 $html .= build_main_menu_mobile($itemId, $menu);
                                 $html .= "</li>";
@@ -85,10 +87,10 @@ $pecah = explode(",", $sosmed['facebook']);
                     return $html;
                 }
                 echo main_menu_mobile();
-            ?>
+                ?>
 
 
-        </div> 
+            </div>
         </div>
     </div>
 
@@ -128,7 +130,7 @@ $pecah = explode(",", $sosmed['facebook']);
             </div>
         </div>
     </div>
-</div> 
+</div>
 
 <div class='td-search-background'></div>
 <div class='td-search-wrap-mob'>

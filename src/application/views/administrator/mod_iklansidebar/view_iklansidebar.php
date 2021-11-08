@@ -1,4 +1,4 @@
-            <div class="col-xs-12">  
+            <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
                   <h3 class="box-title">Link Terkait</h3>
@@ -16,22 +16,22 @@
                       </tr>
                     </thead>
                     <tbody>
-                  <?php 
-                    $no = 1;
-                    foreach ($record as $row){
-                    $tgl_Posting = tgl_indo($row['tgl_posting']);
-                    echo "<tr><td>$no</td>
+                      <?php
+                      $no = 1;
+                      foreach ($record as $row) {
+                        $tgl_Posting = tgl_indo($row['tgl_posting']);
+                        echo "<tr><td>$no</td>
                               <td>$row[judul]</td>
                               <td><a target='_BLANK' href='$row[url]'>$row[url]</a></td>
                               <td>$tgl_Posting</td>
                               <td><center>
-                                <a class='btn btn-success btn-xs' title='Edit Data' href='".base_url()."administrator/edit_iklansidebar/$row[id_pasangiklan]'><span class='glyphicon glyphicon-edit'></span></a>
-                                <a class='btn btn-danger btn-xs' title='Delete Data' href='".base_url()."administrator/delete_iklansidebar/$row[id_pasangiklan]' onclick=\"return confirm('Apa anda yakin untuk hapus Data ini?')\"><span class='glyphicon glyphicon-remove'></span></a>
+                                <a class='btn btn-success btn-xs' title='Edit Data' href='" . base_url() . "administrator/edit_iklansidebar/$row[id_pasangiklan]'><span class='glyphicon glyphicon-edit'></span></a>
+                                <a class='btn btn-danger btn-xs' title='Delete Data' href='" . base_url() . "administrator/delete_iklansidebar/$row[id_pasangiklan]' onclick=\"return confirm('Apa anda yakin untuk hapus Data ini?')\"><span class='glyphicon glyphicon-remove'></span></a>
                               </center></td>
                           </tr>";
-                      $no++;
-                    }
-                  ?>
-                  </tbody>
-                </table>
-              </div>
+                        $no++;
+                      }
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
