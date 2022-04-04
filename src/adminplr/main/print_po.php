@@ -716,7 +716,7 @@ tags will be replaced.-->
       $user_query = mysql_query("select * from tb_user where id_user = $row_po[id_user] ") or die(mysql_error());
       $row_user = mysql_fetch_array($user_query);
 
-    ?>
+      ?>
 
       <table border=0 cellpadding=0 cellspacing=0 width=605 class=xl664119 style='border-collapse:collapse; table-layout:fixed;width:455pt'>
         <col class=xl664119 width=60 style='mso-width-source:userset;mso-width-alt:
@@ -1675,9 +1675,9 @@ AAAAAA==
           <td class=xl664119>:</td>
           <td class=xl664119></td>
           <td colspan="5" class=xl664119>Rp.<?php $a = $row_po['harga_po'];
-                                            $b = $row_po['vol_po'];
-                                            $c = $a * $b;
-                                            echo number_format($c); ?>,-</td>
+                                              $b = $row_po['vol_po'];
+                                              $c = $a * $b;
+                                              echo number_format($c); ?>,-</td>
           <td class=xl664119></td>
         </tr>
         <tr height=0 valign=bottom>
@@ -8011,7 +8011,7 @@ BgAAAAAGAAYAhAEAAG4hAAAAAA==
 
   </div>
 <?php
-    }
+}
 ?>
 <![if !vml]><span style='mso-ignore: vglayout; position: absolute; z-index: 1; margin-left: 3px; margin-top: 5px; width: 637px; height: 107px; left: 9px; top: 1038px;'></span>
 <![endif]><span style='mso-ignore:vglayout2'>

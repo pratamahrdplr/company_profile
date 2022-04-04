@@ -18,4 +18,3 @@ if ($jum < 1) {
         echo "<script>alert('Data Berhasil di putar')</script>";
     echo "<meta http-equiv='refresh' content='0;url=./index.php?page=putar_penawaran'>";
 }
-?>

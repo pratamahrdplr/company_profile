@@ -46,7 +46,7 @@
               while ($row_user = mysql_fetch_array($user_query)) {
 
 
-          ?>
+                ?>
 
                 <tr class="odd gradeX">
 

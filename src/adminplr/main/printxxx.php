@@ -2929,8 +2929,8 @@ AAAAAAAAAACwBgAAZHJzL21lZGlhL2ltYWdlMS5wbmdQSwUGAAAAAAYABgCEAQAA/qYBAAAA
                <td class=xl6430583></td>
                <td class=xl6630583></td>
                <td class=xl8730583 colspan=5>
-                  <font face="Arial"><i>( Harga Sudah termasuk
-                        PPn 10% )</i></font>
+                  <font face="Arial"><i>( <b>Harga</b> Sudah termasuk
+                        <b>PPn 11%</b> )</i></font>
                </td>
                <td class=xl7730583></td>
                <td class=xl8130583></td>

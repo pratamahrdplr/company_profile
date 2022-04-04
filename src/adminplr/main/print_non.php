@@ -718,7 +718,7 @@ tags will be replaced.-->
 
 
       $harga = $row_pn['harga_penawaran'];
-      $ppn = 0.1;
+      $ppn = 0.11;
       $pbbkb = 0.008585;
       $pph = 0.003;
 
@@ -727,8 +727,8 @@ tags will be replaced.-->
       $hpbbkb = $harga / $tpajak * $pbbkb;
       $hpph = $harga / $tpajak * $pph;
       $harga_dasar = $harga - $hppn - $hpph - $hpbbkb;
-      $harga_dasar_ppn = $harga / 1.1;
-      $hppn_ppn = $harga_dasar_ppn * 0.1;
+      $harga_dasar_ppn = $harga / (1.0 + $ppn);
+      $hppn_ppn = $harga_dasar_ppn * $ppn;
 
       $querypen = mysql_query("update tb_penawaran set no_penawaran = '0$row_pn[id_penawaran]/PLR-HSD-$areax/$bln/$thn', ppn = '$hppn' , ppn_ppn = '$hppn_ppn' ,pbbkb = '$hpbbkb' , pph = '$hpph' , harga_dasar = '$harga_dasar' , harga_dasar_ppn = '$harga_dasar_ppn' where id_penawaran = '$_GET[id_penawaran]'") or die(mysql_error());
       $pen_query = mysql_query("select * from tb_penawaran where id_penawaran = '$_GET[id_penawaran]'") or die(mysql_error());
@@ -1835,7 +1835,7 @@ AAAAAA==
           <td class=xl664119></td>
           <td class=xl664119></td>
           <td class=xl774119 align=right>
-            <font face="Verdana" color="#000000">10%</font>
+            <font face="Verdana" color="#000000"><?php echo number_format($ppn * 100, 0); ?>%</font>
           </td>
           <td class=xl684119 align=center>
             <font face="Verdana">:</font>

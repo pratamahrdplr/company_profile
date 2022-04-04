@@ -736,7 +736,7 @@ tags will be replaced.-->
 
 
       $harga = $row_pn['harga_penawaran'];
-      $ppn = 0.1;
+      $ppn = 0.11;
       $pbbkb = 0.008585;
       $pph = 0.003;
 
@@ -745,13 +745,13 @@ tags will be replaced.-->
       $hpbbkb = $harga / $tpajak * $pbbkb;
       $hpph = $harga / $tpajak * $pph;
       $harga_dasar = $harga - $hppn - $hpph - $hpbbkb;
-      $harga_dasar_ppn = $harga / 1.1;
-      $hppn_ppn = $harga_dasar_ppn * 0.1;
+      $harga_dasar_ppn = $harga / (1.0 + $ppn);
+      $hppn_ppn = $harga_dasar_ppn * $ppn;
 
       $querypen = mysql_query("update tb_penawaran set no_penawaran = '0$row_pn[id_penawaran]/PLR-HSD-$areax/$bln/$thn', ppn = '$hppn' , ppn_ppn = '$hppn_ppn' ,pbbkb = '$hpbbkb' , pph = '$hpph' , harga_dasar = '$harga_dasar' , harga_dasar_ppn = '$harga_dasar_ppn' where id_penawaran = '$_GET[id_penawaran]'") or die(mysql_error());
       $pen_query = mysql_query("select * from tb_penawaran where id_penawaran = '$_GET[id_penawaran]'") or die(mysql_error());
       $row_ppn = mysql_fetch_array($pen_query);
-    ?>
+      ?>
       <table border=0 cellpadding=0 cellspacing=0 width=605 class=xl664119 style='border-collapse:collapse ; table-layout:fixed;width:455pt'>
         <col class=xl664119 width=60 style='mso-width-source:userset;mso-width-alt:
  2194;width:45pt'>
@@ -1541,30 +1541,30 @@ AAAAAA==
           <td class=xl664119></td>
           <td class=xl694119></td>
           <?php
-          if ($area == 'surabaya') {
-            $areak = 'Surabaya';
-          } elseif ($area == 'SURABAYA') {
-            $areak = 'Surabaya';
-          } elseif ($area == 'probolinggo') {
-            $areak = 'Probolinggo';
-          } elseif ($area == 'PROBOLINGGO') {
-            $areak = 'Probolinggo';
-          } elseif ($area == 'semarang') {
-            $areak = 'Semarang';
-          } elseif ($area == 'SEMARANG') {
-            $areak = 'Semarang';
-          } elseif ($area == 'juwana') {
-            $areak = 'Juwana';
-          } elseif ($area == 'JUWANA') {
-            $areak = 'Juwana';
-          } elseif ($area == 'cirebon') {
-            $areak = 'Cirebon';
-          } elseif ($area == 'CIREBON') {
-            $areak = 'Cirebon';
-          } elseif ($area == 'all') {
-            $areak = 'Surabaya';
-          }
-          ?>
+            if ($area == 'surabaya') {
+              $areak = 'Surabaya';
+            } elseif ($area == 'SURABAYA') {
+              $areak = 'Surabaya';
+            } elseif ($area == 'probolinggo') {
+              $areak = 'Probolinggo';
+            } elseif ($area == 'PROBOLINGGO') {
+              $areak = 'Probolinggo';
+            } elseif ($area == 'semarang') {
+              $areak = 'Semarang';
+            } elseif ($area == 'SEMARANG') {
+              $areak = 'Semarang';
+            } elseif ($area == 'juwana') {
+              $areak = 'Juwana';
+            } elseif ($area == 'JUWANA') {
+              $areak = 'Juwana';
+            } elseif ($area == 'cirebon') {
+              $areak = 'Cirebon';
+            } elseif ($area == 'CIREBON') {
+              $areak = 'Cirebon';
+            } elseif ($area == 'all') {
+              $areak = 'Surabaya';
+            }
+            ?>
           <td class=xl704119 align=right>
             <font face="Verdana"><?php echo $areak ?>,<span style='mso-spacerun:yes'> </span></font>
           </td>
@@ -1852,7 +1852,7 @@ AAAAAA==
           <td class=xl664119></td>
           <td class=xl664119></td>
           <td class=xl774119 align=right>
-            <font face="Verdana" color="#000000">10%</font>
+            <font face="Verdana" color="#000000"><?php echo number_format($ppn * 100, 0); ?>%</font>
           </td>
           <td class=xl684119 align=center>
             <font face="Verdana">:</font>
@@ -8334,7 +8334,7 @@ BgAAAAAGAAYAhAEAAG4hAAAAAA==
 
   </div>
 <?php
-    }
+}
 ?>
 <![if !vml]><span style='mso-ignore: vglayout; position: absolute; z-index: 1; margin-left: 3px; margin-top: 5px; width: 637px; height: 107px; left: 1px; top: 1024px;'><img width=787 height=87 src="penawaran_files/semarang2.jpg" v:shapes="Picture_x0020_1 Picture_x0020_2"></span>
 <![endif]><span style='mso-ignore:vglayout2'>

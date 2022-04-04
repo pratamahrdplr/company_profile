@@ -64,10 +64,10 @@
          <input name="submit" type="submit" value="Filter" class="btn btn-success" />
        </form>
        <p class="text-muted font-13 m-b-30">
-       <div class="btn-group">
-         <a class="btn btn-warning" href="?page=grafik_penawaran"> Penawaran Terkirim </a>
-         <a class="btn btn-primary" href="?page=grafik_penawaran_gagal"> Penawaran gagal </a>
-       </div>
+         <div class="btn-group">
+           <a class="btn btn-warning" href="?page=grafik_penawaran"> Penawaran Terkirim </a>
+           <a class="btn btn-primary" href="?page=grafik_penawaran_gagal"> Penawaran gagal </a>
+         </div>
        </p>
 
 

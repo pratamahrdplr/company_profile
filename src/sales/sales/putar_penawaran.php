@@ -44,7 +44,7 @@
 
                     $user_query = mysql_query("select * from tb_user where id_user = '$row_pn[id_user]'") or die(mysql_error());
                     while ($row_user = mysql_fetch_array($user_query)) {
-                ?>
+                      ?>
 
                       <tr>
                         <td class="a-center ">
@@ -73,7 +73,7 @@
                 $user_ = mysql_query("select * from tb_user where level_user = 'marketing'") or die(mysql_error());
                 while ($row_ = mysql_fetch_array($user_)) {
 
-                ?>
+                  ?>
 
                   <option value="<?php echo $row_['id_user']; ?>"><?php echo $row_['nama_user']; ?></option>
                 <?php

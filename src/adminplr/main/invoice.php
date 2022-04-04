@@ -4893,8 +4893,6 @@ tags will be replaced.-->
 
 <div id="invoice_16542" align=center x:publishsource="Excel">
 <?php
-
-
 	$po_query = mysql_query("select * from tb_po where id_po = '$_GET[id_po]'")or die(mysql_error());
 		while($row_pn = mysql_fetch_array($po_query)){
 		$array_bln = array("","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII");
@@ -4924,8 +4922,8 @@ $pemisah_desimal =",";
 $pemisah_ribuan =".";
 
 
-	
-$a = (10*100/100);
+	$ppnprosen = 11;
+$a = ($ppnprosen*100/100);
  $fee = $row_pn['fee_po'] ;
  $row_nopo = $row_pn['no_po'] ;
  $no_po =strtoupper($row_nopo);
@@ -4938,28 +4936,26 @@ $a = (10*100/100);
  $volume = $row_pn['vol_po']; 
   $oras = $row_pn['jatuh_tempo']; 
  
-$total = ($a+(100*100/100));
- $harga_pembayaran =  round($row_pn['harga_po'],0);    
- $ppn = round(($harga_pembayaran / $total) * $a,0) ; 
+ $total = ($a+(100*100/100));
+ $harga_pembayaran =  round($row_pn['harga_po'],0);
 
+//Rumus Include
+$harga_dasar = round($harga_pembayaran / (1.0 + ($ppnprosen / 100.0)),0);
+$ppn = round(($harga_pembayaran - $harga_dasar),0) ; 
+$total_pajak = $ppn;
 
-  $total_pajak = $ppn ;
-  
-  
- $harga_dasar = round($harga_pembayaran - $total_pajak,0) ;     
- 
- $ora = strtotime($oras);
+$ora = strtotime($oras);
 $newdate = date("d/m/Y",$ora);	
-     
- $sub_bayar = round($harga_dasar * $volume ,0) ;
+
+$sub_bayar = round($harga_dasar * $volume ,0) ;
 $sub_bayar2 = number_format( round($harga_dasar * $volume ,0), $jumlah_desimal , $pemisah_desimal , $pemisah_ribuan) ; 	
 
  $total_bayar = round($harga_pembayaran * $volume ,0) ;	
  $total_bayar2 = number_format(round($harga_pembayaran * $volume ,0) , $jumlah_desimal , $pemisah_desimal , $pemisah_ribuan) ; 
- $total_ppn =  round($ppn * $volume ,0) ; 	
- $total_ppn2 =  number_format(round($ppn * $volume ,0), $jumlah_desimal , $pemisah_desimal , $pemisah_ribuan) ; 	
-  $total_oat = round($oat * $volume ,0) ;	
-  $total_oat2 = number_format(round($oat * $volume ,0), $jumlah_desimal , $pemisah_desimal , $pemisah_ribuan) ; 	
+ $total_ppn = round($ppn * $volume ,0) ; 	
+ $total_ppn2 = number_format(round($ppn * $volume ,0), $jumlah_desimal , $pemisah_desimal , $pemisah_ribuan) ; 	
+ $total_oat = round($oat * $volume ,0) ;	
+ $total_oat2 = number_format(round($oat * $volume ,0), $jumlah_desimal , $pemisah_desimal , $pemisah_ribuan) ; 	
   
 		?>
 <table border=0 cellpadding=0 cellspacing=0 width=686 style='border-collapse:

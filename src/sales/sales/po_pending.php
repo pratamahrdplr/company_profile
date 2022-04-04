@@ -10,23 +10,23 @@
         </div>
         <div class="x_content">
           <p class="text-muted font-13 m-b-30">
-          <div class="btn-group">
-            <a class="btn btn-primary" href="?page=data_kontak"> Tracking </a>
-            <a class="btn btn-primary" href="?page=data_kontak_b"> Belum dihubungi </a>
-            <a class="btn btn-primary" href="?page=data_kontak_th"> Telah dihubungi </a>
-            <a class="btn btn-primary" href="?page=data_kontak_tl"> Telepon Ulang </a>
-            <a class="btn btn-primary" href="?page=data_penawaran"> Penawaran Anda</a>
-            <a class="btn btn-warning" href="?page=data_po"> PO Anda</a>
-            <a class="btn btn-primary" href="?page=data_kirim"> Pengiriman</a>
-            <a class="btn btn-primary" href="?page=data_bayar"> Pembayaran</a>
-          </div>
+            <div class="btn-group">
+              <a class="btn btn-primary" href="?page=data_kontak"> Tracking </a>
+              <a class="btn btn-primary" href="?page=data_kontak_b"> Belum dihubungi </a>
+              <a class="btn btn-primary" href="?page=data_kontak_th"> Telah dihubungi </a>
+              <a class="btn btn-primary" href="?page=data_kontak_tl"> Telepon Ulang </a>
+              <a class="btn btn-primary" href="?page=data_penawaran"> Penawaran Anda</a>
+              <a class="btn btn-warning" href="?page=data_po"> PO Anda</a>
+              <a class="btn btn-primary" href="?page=data_kirim"> Pengiriman</a>
+              <a class="btn btn-primary" href="?page=data_bayar"> Pembayaran</a>
+            </div>
           </p>
           <p class="text-muted font-13 m-b-30">
-          <div class="btn-group">
-            <a class="btn btn-warning" href="?page=po_pending"> PO Pending </a>
-            <a class="btn btn-primary" href="?page=po_setuju"> PO Approve</a>
-            <a class="btn btn-primary" href="?page=po_tidak_setuju"> PO Hold</a>
-          </div>
+            <div class="btn-group">
+              <a class="btn btn-warning" href="?page=po_pending"> PO Pending </a>
+              <a class="btn btn-primary" href="?page=po_setuju"> PO Approve</a>
+              <a class="btn btn-primary" href="?page=po_tidak_setuju"> PO Hold</a>
+            </div>
           </p>
 
           <form class="form" action="?page=po_pending" enctype="multipart/form-data" method="post">
@@ -70,7 +70,7 @@
 
                 $user_query = mysql_query("select * from tb_user where aktif=1 and id_user = '$session_user' ") or die(mysql_error());
                 $row_user = mysql_fetch_array($user_query);
-              ?>
+                ?>
                 <tr>
 
                   <td><?php echo $row['tanggal_po']; ?></td>
