@@ -1924,7 +1924,7 @@ AAAAAA==
             <font face="Verdana">-</font>
           </td>
           <td class=xl824119 colspan=4>
-            <font face="Verdana"><b>Harga Solar HSD (PPN 10%)</b></font>
+            <font face="Verdana"><b>Harga Solar HSD (PPn <?php echo number_format(100 * $ppn); ?>%)</b></font>
           </td>
           <td class=xl834119 align=center style='border-top:none'>
             <font face="Verdana"><b>:</b></font>

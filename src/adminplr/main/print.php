@@ -5,7 +5,7 @@ dbcon();
 //$query = "select * from tb_kontak_all ";
 //$result = mysql_query($query) or die(mysql_error());
 $no = 1;
-
+$ppnprosen = 11;
 ?>
 <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
 
@@ -3018,7 +3018,7 @@ AAAAAAAAAACwBgAAZHJzL21lZGlhL2ltYWdlMS5wbmdQSwUGAAAAAAYABgCEAQAA/qYBAAAA
           <td class=xl6630583></td>
           <td class=xl8730583 colspan=5>
             <font face="Arial"><i>( <b>Harga</b> Sudah termasuk
-                PPn <b>11%</b> )</i></font>
+                <b>PPn <?php echo $ppnprosen ?>%</b> )</i></font>
           </td>
           <td class=xl7730583></td>
           <td class=xl8130583></td>
