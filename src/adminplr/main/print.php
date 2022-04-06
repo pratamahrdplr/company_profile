@@ -3017,7 +3017,7 @@ AAAAAAAAAACwBgAAZHJzL21lZGlhL2ltYWdlMS5wbmdQSwUGAAAAAAYABgCEAQAA/qYBAAAA
           <td class=xl6430583></td>
           <td class=xl6630583></td>
           <td class=xl8730583 colspan=5>
-            <font face="Arial"><i>( <b>Harga</b> Sudah termasuk
+            <font face="Arial"><i>( Harga <b>Sudah</b> termasuk
                 <b>PPn <?php echo $ppnprosen ?>%</b> )</i></font>
           </td>
           <td class=xl7730583></td>
